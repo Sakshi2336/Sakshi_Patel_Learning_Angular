@@ -1,1 +1,10 @@
-{{title}}
+<div class="container">
+  <h2>Cricketer List</h2>
+  <div *ngFor="let cricketer of cricketersList" class="user-card">
+    <h3>{{ cricketer.firstName }} {{ cricketer.lastName }}</h3>
+    <p>ID: {{ cricketer.id }}</p>
+    <p>Country:{{ cricketer.country }}</p>
+    <p>Role:{{ cricketer.role }}</p>
+    <p>Status:{{ cricketer.isActive ? 'Active' : 'Retired' }}</p>
+  </div>
+</div>
