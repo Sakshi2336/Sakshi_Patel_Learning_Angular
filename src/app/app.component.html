@@ -6,5 +6,10 @@
     <p>Country:{{ cricketer.country }}</p>
     <p>Role:{{ cricketer.role }}</p>
     <p>Status:{{ cricketer.isActive ? 'Active' : 'Retired' }}</p>
+
+    <!-- button to toggle admin status -->
+    <button (click)="toggleAdminStatus(cricketer)" class="toggle-button">
+      Toggle Cricketer active status
+    </button>
   </div>
 </div>
