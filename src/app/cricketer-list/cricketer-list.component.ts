@@ -22,12 +22,12 @@ export class CricketerListComponent {
   ]
 
   //function
-  selectedCrickter?: Cricketer;
+  selectedCricketer?: Cricketer;
 
 
   //Function that gets called from our onclick. Takes in an
   //argument of a variable called user, which is type User and returns void
-  selectCrickter(cricketer: Cricketer): void {
+  selectCricketer(cricketer: Cricketer): void {
     cricketer.isActive = !cricketer.isActive;
   }
 }
