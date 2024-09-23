@@ -1,5 +1,5 @@
 
-<div *ngIf="cricketer" class="cricketer-detail">
+<!--<div *ngIf="cricketer" class="cricketer-detail">
   <h2>Cricketer Details</h2>
   <p><strong>ID:</strong> {{ cricketer.id }}</p>
   <h1>First Name: {{ cricketer.firstName }}</h1>
@@ -7,4 +7,13 @@
   <p><strong>Country:</strong> {{ cricketer.country }}</p>
   <p><strong>Role:</strong> {{ cricketer.role }}</p>
   <p><strong>Active:</strong> {{ cricketer.isActive ? 'Yes' : 'No' }}</p>
+</div>-->
+<div *ngIf = 'cricketer'>
+
+  <h1>Cricketer List</h1>
+  <p>ID:{{cricketer.id}}</p>
+  <p>Name:{{cricketer.firstName}} {{cricketer.lastName}}</p>
+  <p>Country:{{cricketer.country}}</p>
+  <p>Role:{{cricketer.role}}</p>
+  <p>Active:{{cricketer.isActive}}</p>
 </div>
