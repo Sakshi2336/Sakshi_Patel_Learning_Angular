@@ -1,15 +1,2 @@
-<div class="container">
-  <h2>Cricketer List</h2>
-  <div *ngFor="let cricketer of cricketersList" class="user-card">
-    <h3>{{ cricketer.firstName }} {{ cricketer.lastName }}</h3>
-    <p>ID: {{ cricketer.id }}</p>
-    <p>Country:{{ cricketer.country }}</p>
-    <p>Role:{{ cricketer.role }}</p>
-    <p>Status:{{ cricketer.isActive ? 'Active' : 'Retired' }}</p>
-
-    <!-- button to toggle admin status -->
-    <button (click)="toggleAdminStatus(cricketer)" class="toggle-button">
-      Toggle Cricketer active status
-    </button>
-  </div>
-</div>
+<h1>{{title}}</h1>
+<app-cricketer-list></app-cricketer-list>

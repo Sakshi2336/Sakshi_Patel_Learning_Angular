@@ -1,1 +1,16 @@
-<p>cricketer-list works!</p>
+<div>
+  <table>
+    <tbody>
+    <tr *ngFor="let cricketer of cricketersList" (click)="selectCrickter(cricketer)">
+
+      <td>{{ cricketer.id }}</td>
+      <td>{{ cricketer.firstName }}</td>
+      <td>{{ cricketer.lastName }}</td>
+      <td>{{ cricketer.country }}</td>
+      <td>{{ cricketer.role }}</td>
+      <td>{{ cricketer.isActive ? 'Yes' : 'No' }}</td>
+    </tr>
+    </tbody>
+  </table>
+  <app-cricketer-detail [cricketer]="selectedCrickter"></app-cricketer-detail>
+</div>
