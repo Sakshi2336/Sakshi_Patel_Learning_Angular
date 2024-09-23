@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
 import {Cricketer} from "../Shared/Modules/cricketer";
 import {NgForOf} from "@angular/common";
-import {CricketerDetailComponent} from "../cricketer-detail/cricketer-detail.component";
+import {CricketerListItemComponent} from "../cricketer-list-item/cricketer-list-item.component";
 
 @Component({
   selector: 'app-cricketer-list',
   standalone: true,
-  imports: [NgForOf,NgForOf,CricketerDetailComponent],
+  imports: [NgForOf,NgForOf,CricketerListItemComponent],
   templateUrl: './cricketer-list.component.html',
   styleUrl: './cricketer-list.component.css'
 })
@@ -23,6 +23,9 @@ export class CricketerListComponent {
     {id: 6, firstName: 'AB', lastName: 'de Villiers', country: 'South Africa', role: 'Batsman', isActive: false}
   ]
 
+
+
+  /*
   //function
   selectedCricketer?: Cricketer;
 
@@ -31,5 +34,5 @@ export class CricketerListComponent {
   //argument of a variable called user, which is type User and returns void
   selectCricketer(cricketer: Cricketer): void {
     cricketer.isActive = !cricketer.isActive;
-  }
+  }*/
 }

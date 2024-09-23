@@ -3,13 +3,13 @@ import {Cricketer} from "../Shared/Modules/cricketer";
 import {NgIf} from "@angular/common";
 
 @Component({
-  selector: 'app-cricketer-detail',
+  selector: 'app-cricketer-list-item',
   standalone: true,
   imports: [NgIf],
-  templateUrl: './cricketer-detail.component.html',
-  styleUrl: './cricketer-detail.component.css'
+  templateUrl: './cricketer-list-item.component.html',
+  styleUrl: './cricketer-list-item.component.css'
 })
-export class CricketerDetailComponent {
+export class CricketerListItemComponent {
 
   @Input() cricketer?: Cricketer;
 }

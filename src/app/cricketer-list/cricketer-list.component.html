@@ -1,4 +1,4 @@
-<div>
+<!--<div>
   <table>
     <tbody>
     <tr *ngFor="let cricketer of cricketersList" (click)="selectCricketer(cricketer)">
@@ -13,4 +13,9 @@
     </tbody>
   </table>
   <app-cricketer-detail [cricketer]="selectedCricketer"></app-cricketer-detail>
-</div>
+</div>-->
+
+<app-cricketer-list-item>{{cricketersList[0].firstName}}</app-cricketer-list-item>
+<app-cricketer-list-item>{{cricketersList[1].firstName}}</app-cricketer-list-item>
+<app-cricketer-list-item>{{cricketersList[2].firstName}}</app-cricketer-list-item>
+<app-cricketer-list-item>{{cricketersList[3].firstName}}</app-cricketer-list-item>
