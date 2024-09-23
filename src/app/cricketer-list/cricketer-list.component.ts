@@ -28,7 +28,7 @@ export class CricketerListComponent {
 
   //function
   selectedCricketer?: Cricketer;
-  
+
   selectPlayer(cric: Cricketer): void {
     this.selectedCricketer = cric;
   }

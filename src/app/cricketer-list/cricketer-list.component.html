@@ -1,6 +1,15 @@
 <div>
   <table>
     <tbody>
+    <tr>
+      <th>Id</th>
+      <th>First name</th>
+      <th>Last Name</th>
+      <th>Country</th>
+      <th>Role</th>
+      <th>Active</th>
+
+    </tr>
     <tr *ngFor="let cricketer of cricketersList" (click)="selectPlayer(cricketer)">
 
       <td>{{ cricketer.id }}</td>
@@ -8,11 +17,11 @@
       <td>{{ cricketer.lastName }}</td>
       <td>{{ cricketer.country }}</td>
       <td>{{ cricketer.role }}</td>
-      <td>{{ cricketer.isActive ? 'Yes' : 'No' }}</td>
+      <td>{{ cricketer.isActive}}</td>
     </tr>
     </tbody>
   </table>
-  <app-cricketer-detail [cricketer]="selectedCricketer"></app-cricketer-detail>
+<!--  <app-cricketer-detail [cricketer]="selectedCricketer"></app-cricketer-detail>-->
 </div>
 
 <app-cricketer-list-item>{{cricketersList[0].firstName}}</app-cricketer-list-item>
