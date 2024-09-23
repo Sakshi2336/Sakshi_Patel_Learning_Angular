@@ -12,6 +12,8 @@ import {CricketerDetailComponent} from "../cricketer-detail/cricketer-detail.com
 })
 export class CricketerListComponent {
 
+  displayedColumns:string[]= ['id', 'firstName', 'lastName', 'country', 'isActive'];
+
   cricketersList: Cricketer[] = [
     {id: 1, firstName: 'Virat', lastName: 'Kohli', country: 'India', role: 'Batsman', isActive: true},
     {id: 2, firstName: 'Steve', lastName: 'Smith', country: 'Australia', role: 'Batsman', isActive: true},
