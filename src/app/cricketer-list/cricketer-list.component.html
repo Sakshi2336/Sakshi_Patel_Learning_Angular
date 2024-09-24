@@ -24,8 +24,8 @@
   <app-cricketer-list-item *ngIf="selectedCricketer" [cricketerData] = "selectedCricketer"></app-cricketer-list-item>
 </div>
 
-
-<!--//cricketerData: This is the input property in CricketerListItemComponent where the data will be received.-->
+<h1>Cricketer List</h1>
+<!--cricketerData: This is the input property in CricketerListItemComponent where the data will be received.-->
 <div *ngFor="let crc of cricketersList; let indexNum = index" class="info">
   <app-cricketer-list-item
     [cricketerData]="crc"
@@ -33,7 +33,7 @@
   </app-cricketer-list-item>
 </div>
 
-//this is like i am using cricketer-list-item tag for each time to show cricketer information
+<!--//this is like i am using cricketer-list-item tag for each time to show cricketer information-->
 <app-cricketer-list-item>{{cricketersList[0].firstName}}</app-cricketer-list-item>
 <app-cricketer-list-item>{{cricketersList[1].firstName}}</app-cricketer-list-item>
 <app-cricketer-list-item>{{cricketersList[2].firstName}}</app-cricketer-list-item>
