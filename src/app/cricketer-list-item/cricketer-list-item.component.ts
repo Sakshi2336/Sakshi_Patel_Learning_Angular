@@ -11,5 +11,5 @@ import {NgIf} from "@angular/common";
 })
 export class CricketerListItemComponent {
 
-  @Input() cricketer?: Cricketer;
+  @Input() cricketerData?: Cricketer;
 }

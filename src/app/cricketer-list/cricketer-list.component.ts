@@ -1,18 +1,16 @@
 import { Component } from '@angular/core';
 import {Cricketer} from "../Shared/Modules/cricketer";
-import {NgForOf} from "@angular/common";
+import {NgForOf, NgIf, NgStyle} from "@angular/common";
 import {CricketerListItemComponent} from "../cricketer-list-item/cricketer-list-item.component";
 
 @Component({
   selector: 'app-cricketer-list',
   standalone: true,
-  imports: [NgForOf,NgForOf,CricketerListItemComponent],
+  imports: [NgForOf, NgForOf, CricketerListItemComponent, NgIf, NgStyle],
   templateUrl: './cricketer-list.component.html',
   styleUrl: './cricketer-list.component.css'
 })
 export class CricketerListComponent {
-
-  displayedColumns:string[]= ['id', 'firstName', 'lastName', 'country', 'isActive'];
 
   cricketersList: Cricketer[] = [
     {id: 1, firstName: 'Virat', lastName: 'Kohli', country: 'India', role: 'Batsman', isActive: true},
