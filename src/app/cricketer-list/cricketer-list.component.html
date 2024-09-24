@@ -26,10 +26,9 @@
 
 <h1>Cricketer List</h1>
 <!--cricketerData: This is the input property in CricketerListItemComponent where the data will be received.-->
-<div *ngFor="let crc of cricketersList; let indexNum = index" class="info">
+<div *ngFor="let crc of cricketersList; let indexNum = index" class="info" [style.background-color]="indexNum % 2 === 0 ? 'pink' : 'teal'">
   <app-cricketer-list-item
-    [cricketerData]="crc"
-    [ngStyle]="{'background-color': indexNum % 2 === 0 ? 'red' : 'black'}">
+    [cricketerData]="crc">
   </app-cricketer-list-item>
 </div>
 
