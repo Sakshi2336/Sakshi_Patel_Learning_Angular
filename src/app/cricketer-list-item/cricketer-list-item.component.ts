@@ -10,6 +10,6 @@ import {NgIf} from "@angular/common";
   styleUrl: './cricketer-list-item.component.css'
 })
 export class CricketerListItemComponent {
-
+//This looks good
   @Input() cricketerData?: Cricketer;
 }

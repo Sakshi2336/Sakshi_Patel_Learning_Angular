@@ -1,3 +1,5 @@
+
+
 h1{
   text-align: center;
 }
@@ -34,3 +36,14 @@ tr:hover {
   border: 2px solid black;
 }
 
+/*Other styles may be overwriting the ngStyle
+Adding this in to make sure the styles are applied
+- Mathew
+*/
+.even-row {
+  background-color: red !important;
+}
+
+.odd-row {
+  background-color: black !important;
+}

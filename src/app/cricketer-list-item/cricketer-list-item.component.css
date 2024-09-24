@@ -1,4 +1,10 @@
+/*Ensure the the list item allows a background override
+- Mathew */
 
+:host {
+  display: block;
+  width: 100%;
+}
 
 .cricketer-detail {
   border: 1px solid #ddd;
