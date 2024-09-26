@@ -1,6 +1,7 @@
 import {Component, Input} from '@angular/core';
 import {Cricketer} from "../Shared/Modules/cricketer";
 import {NgIf} from "@angular/common";
+import {Observable} from "rxjs";
 
 @Component({
   selector: 'app-cricketer-list-item',
