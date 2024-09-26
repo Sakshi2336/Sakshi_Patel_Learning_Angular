@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Cricketer} from "../Shared/Modules/cricketer";
 import {NgClass, NgForOf, NgIf, NgStyle} from "@angular/common";
 import {CricketerListItemComponent} from "../cricketer-list-item/cricketer-list-item.component";
@@ -11,7 +11,7 @@ import {CricketPlayerService} from "../Services/cricket-player.service";
   templateUrl: './cricketer-list.component.html',
   styleUrl: './cricketer-list.component.css'
 })
-export class CricketerListComponent {
+export class CricketerListComponent implements OnInit{
 
   //I still want a local copy of the cricketer list
   cricketerList:Cricketer[] = [];
@@ -20,10 +20,19 @@ export class CricketerListComponent {
   constructor(private cricketPlayerService : CricketPlayerService) {
   }
 
-//Not Needed Code Below. You can remove it - Matt
+  ngOnInit() {
+    //this life cycle hook is a good place to fetch init our data
+    this.cricketPlayerService.getCricketer().subscribe({
+      next:(data:Cricketer[]) => this.cricketerList = data, //data is just variable name here
+      error:err=>console.error("Error fetching cricketer:",err),
+      complete:() => console.log("Cricketer data fetch complete successfully!")
+    })
+
+  }
+
+  //Not Needed Code Below. You can remove it - Matt
   //function
   selectedCricketer?: Cricketer;
-
   selectPlayer(cric: Cricketer): void {
     this.selectedCricketer = cric;
   }

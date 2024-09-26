@@ -9,11 +9,38 @@ import {Observable, of} from "rxjs";
 export class CricketPlayerService {
 
   //local copy of cricketer list
-  private cricketer:Cricketer[] = cricketersList;
+  private local_cricketerList:Cricketer[] = cricketersList;
   constructor() { }
 
   //this method will return the array from mock file
   getCricketer():Observable<Cricketer[]>{
     return of (cricketersList);
+  }
+
+  //Method 1 : accept the number as argument and give the item which ahs the same id
+  // as number
+  findStudentId(userEnterNumber : number) : Observable<Cricketer | undefined>{
+    const cricketerId = this.local_cricketerList.find(cricketer => cricketer.id === userEnterNumber);
+    return of(cricketerId);
+  }
+
+  addNewCricketer(newCricketer : Cricketer) : Observable<Cricketer[]>{
+    this.local_cricketerList.push(newCricketer)
+    return of(this.local_cricketerList);
+  }
+
+  updateCricketer(updatedCricketer : Cricketer) : Observable<Cricketer[]>{
+    let index = this.local_cricketerList.findIndex(cric=>cric.id === updatedCricketer.id);
+    if(index !== -1){
+      this.local_cricketerList[index] = updatedCricketer;
+    }
+
+    return of(this.local_cricketerList);
+  }
+
+  deleteCricketer(deletedCricketer : number) : Observable<Cricketer>{
+    this.local_cricketerList = this.local_cricketerList.filter(cric=>cric.id !== deletedCricketer);
+
+    return of(this.local_cricketerList[deletedCricketer]);
   }
 }

@@ -31,7 +31,7 @@
 I added classes even-row and odd-row to make it a little easier
 to change the colours, you can modify it in this components css - Mathew-->
 <h1>Cricketer List</h1>
-<div *ngFor="let crc of cricketersList; let indexNum = index" class="info">
+<div *ngFor="let crc of cricketerList; let indexNum = index" class="info">
   <app-cricketer-list-item
     [cricketerData]="crc"
     [ngClass]="{ 'even-row': indexNum % 2 === 0, 'odd-row': indexNum % 2 !== 0 }">
