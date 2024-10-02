@@ -3,6 +3,8 @@ import {Cricketer} from "../Shared/Modules/cricketer";
 import {NgClass, NgForOf, NgIf, NgStyle} from "@angular/common";
 import {CricketerListItemComponent} from "../cricketer-list-item/cricketer-list-item.component";
 import {CricketPlayerService} from "../Services/cricket-player.service";
+import {cricketersList} from "../Shared/mockCricketer.data";
+import {Observable} from "rxjs";
 
 @Component({
   selector: 'app-cricketer-list',
@@ -36,4 +38,6 @@ export class CricketerListComponent implements OnInit{
   selectPlayer(cric: Cricketer): void {
     this.selectedCricketer = cric;
   }
+
+  protected readonly cricketersList = cricketersList;
 }

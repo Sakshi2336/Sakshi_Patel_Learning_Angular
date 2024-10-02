@@ -17,7 +17,7 @@ import {Observable} from "rxjs";
 export class AppComponent {
   title : string = 'Cricketer';
   isNumber = 1;
-  cricketerById : Observable<Cricketer | undefined>;
+  cricketerById:Observable<Cricketer|undefined>;
 
   constructor(private cricketPlayerService : CricketPlayerService){
 
