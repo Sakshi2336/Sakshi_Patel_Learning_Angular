@@ -1,7 +1,8 @@
-<!--this is showing error bcz i am passing here observable  undefined type to only Cricketer type input variable cricketerDate
--->
-<!--<app-cricketer-list-item [cricketerData]="cricketerById"></app-cricketer-list-item>-->
-<app-cricketer-list></app-cricketer-list>
+<div class="nav-bar">
+  <nav>
+    <a routerLink="/cricketers" routerLinkActive="active">Cricketer List</a>
+    <a routerLink="/modify-cricketer" routerLinkActive="active">Modify Cricketer</a>
+  </nav>
+</div>
 
-
-
+<router-outlet></router-outlet>

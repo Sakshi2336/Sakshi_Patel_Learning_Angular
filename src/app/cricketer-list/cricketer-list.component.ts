@@ -1,15 +1,16 @@
 import {Component, OnInit} from '@angular/core';
 import {Cricketer} from "../Shared/Modules/cricketer";
-import {NgClass, NgForOf, NgIf, NgStyle} from "@angular/common";
+import {NgClass, NgForOf, NgIf, NgOptimizedImage, NgStyle} from "@angular/common";
 import {CricketerListItemComponent} from "../cricketer-list-item/cricketer-list-item.component";
 import {CricketPlayerService} from "../Services/cricket-player.service";
 import {cricketersList} from "../Shared/mockCricketer.data";
 import {Observable} from "rxjs";
+import {RouterLink} from "@angular/router";
 
 @Component({
   selector: 'app-cricketer-list',
   standalone: true,
-  imports: [NgForOf, NgForOf, CricketerListItemComponent, NgIf, NgStyle, NgClass],
+  imports: [NgForOf, NgForOf, CricketerListItemComponent, NgIf, NgOptimizedImage, RouterLink],
   templateUrl: './cricketer-list.component.html',
   styleUrl: './cricketer-list.component.css'
 })
@@ -39,5 +40,6 @@ export class CricketerListComponent implements OnInit{
     this.selectedCricketer = cric;
   }
 
-  protected readonly cricketersList = cricketersList;
+
+
 }

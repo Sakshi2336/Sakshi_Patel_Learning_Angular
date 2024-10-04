@@ -5,4 +5,5 @@ export interface Cricketer {
   country: string;
   role: string;
   isActive?: boolean;
+  imageUrl : string;
 }

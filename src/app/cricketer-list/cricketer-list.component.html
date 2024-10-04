@@ -1,6 +1,5 @@
 <div>
   <table>
-    <app-cricketer-list-item *ngIf="selectedCricketer" [cricketerData] = "selectedCricketer"></app-cricketer-list-item>
     <tbody>
     <tr>
       <th>Id</th>
@@ -9,9 +8,10 @@
       <th>Country</th>
       <th>Role</th>
       <th>Active</th>
+      <th>Images</th>
 
     </tr>
-    <tr *ngFor="let cricketer of cricketersList" (click)="selectPlayer(cricketer)">
+    <tr *ngFor="let cricketer of cricketerList" [routerLink]="['/cricketers',cricketer.id ]">
 
       <td>{{ cricketer.id }}</td>
       <td>{{ cricketer.firstName }}</td>
@@ -19,6 +19,9 @@
       <td>{{ cricketer.country }}</td>
       <td>{{ cricketer.role }}</td>
       <td>{{ cricketer.isActive}}</td>
+      <td>
+        <img [src]="cricketer.imageUrl" width="100" height="100" alt="Image"/>
+      </td>
     </tr>
     </tbody>
   </table>
