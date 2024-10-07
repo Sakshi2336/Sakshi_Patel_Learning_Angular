@@ -11,7 +11,7 @@
       <th>Images</th>
 
     </tr>
-    <tr *ngFor="let cricketer of cricketerList" [routerLink]="['/cricketers',cricketer.id ]">
+    <tr *ngFor="let cricketer of cricketerList" [routerLink]="['/cricketers',cricketer.id]">
 
       <td>{{ cricketer.id }}</td>
       <td>{{ cricketer.firstName }}</td>
@@ -21,6 +21,7 @@
       <td>{{ cricketer.isActive}}</td>
       <td>
         <img [src]="cricketer.imageUrl" width="100" height="100" alt="Image"/>
+<!--        <img ngSrc="cricketer.imageUrl" width="100" height="100" alt="Image"/>-->
       </td>
     </tr>
     </tbody>
@@ -28,40 +29,3 @@
 
 </div>
 
-
-<!--//cricketerData: This is the input property in CricketerListItemComponent where the data will be received.-->
-
-<!--This is the code you need to work on to apply the styles to the rows of the table.
-I added classes even-row and odd-row to make it a little easier
-to change the colours, you can modify it in this components css - Mathew-->
-<!--<h1>Cricketer List</h1>-->
-<!--<div *ngFor="let crc of cricketerList; let indexNum = index" class="info" (click)="selectPlayer(crc)">-->
-<!--  <app-cricketer-list-item-->
-<!--    [cricketerData]="crc"-->
-<!--    [ngClass]="{ 'even-row': indexNum % 2 === 0, 'odd-row': indexNum % 2 !== 0 }">-->
-<!--  </app-cricketer-list-item>-->
-<!--</div>-->
-
-<!--//this is like i am using cricketer-list-item tag for each time to show cricketer information
-<app-cricketer-list-item>{{cricketersList[0].firstName}}</app-cricketer-list-item>
-<app-cricketer-list-item>{{cricketersList[1].firstName}}</app-cricketer-list-item>
-<app-cricketer-list-item>{{cricketersList[2].firstName}}</app-cricketer-list-item>
-<app-cricketer-list-item>{{cricketersList[3].firstName}}</app-cricketer-list-item>
-
-//below code is for if i want that when i click on any row it will show the information of the cricketer
--->
-
-
-<!--<tr *ngFor="let cricketer of cricketersList" (click)="selectPlayer(cricketer)">-->
-
-<!--  <td>{{ cricketer.id }}</td>-->
-<!--  <td>{{ cricketer.firstName }}</td>-->
-<!--  <td>{{ cricketer.lastName }}</td>-->
-<!--  <td>{{ cricketer.country }}</td>-->
-<!--  <td>{{ cricketer.role }}</td>-->
-<!--  <td>{{ cricketer.isActive}}</td>-->
-<!--</tr>-->
-<!--</tbody>-->
-<!--</table>-->
-<!--<app-cricketer-list-item *ngIf="selectedCricketer" [cricketerData] = "selectedCricketer"></app-cricketer-list-item>-->
-<!--</div>-->

@@ -26,13 +26,10 @@ export class CricketerListItemComponent implements OnInit{
     private cricketPlayerService: CricketPlayerService,
     private router: Router
   ) {}
-  //rewrite onInit to get the list of cricketers and the current cricketer
+
   ngOnInit(): void {
     this.cricketPlayerService.getCricketer().subscribe(cricketers => {
       this.cricketerList = cricketers;
-
-      // Subscribe to paramMap changes to actually see the page changing
-      //If we dont do this, the URL will change but the view will not
       this.route.paramMap.subscribe(params => {
         const id = Number(params.get('id'));
         if (id) {

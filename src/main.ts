@@ -9,11 +9,11 @@ import {CricketerListItemComponent} from "./app/cricketer-list-item/cricketer-li
 
 
 const routes: Routes = [
-  {path:'', redirectTo: '/cricketers', pathMatch: 'full'}, //default route
+  {path:'', redirectTo: '/cricketers', pathMatch: 'full'},
   { path: 'cricketers', component: CricketerListComponent },
   { path: 'cricketers/:id', component: CricketerListItemComponent },
   {path:'modify-cricketer', component: ModifyListItemComponent},
-  {path: '**', component:PageNotFoundComponent}//Wildcard route for a 404 page
+  {path: '**', component:PageNotFoundComponent}
 ];
 
 bootstrapApplication(AppComponent, {
