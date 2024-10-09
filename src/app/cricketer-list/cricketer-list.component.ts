@@ -33,13 +33,6 @@ export class CricketerListComponent implements OnInit{
 
   }
 
-  //Not Needed Code Below. You can remove it - Matt
-  //function
-  selectedCricketer?: Cricketer;
-  selectPlayer(cric: Cricketer): void {
-    this.selectedCricketer = cric;
-  }
-
 
 
 }
