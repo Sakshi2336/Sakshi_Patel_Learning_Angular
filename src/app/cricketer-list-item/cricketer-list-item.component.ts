@@ -15,9 +15,9 @@ import {CricketPlayerService} from "../Services/cricket-player.service";
 })
 export class CricketerListItemComponent implements OnInit{
 //This looks good
-  @Input() cricketerData?: Cricketer;
+  //@Input() cricketerData?: Cricketer;
 
-  cricketer: Cricketer | undefined;
+  cricketerData: Cricketer | undefined;
   cricketerList: Cricketer[] = [];
   currentIndex: number = 0;
 
@@ -34,7 +34,7 @@ export class CricketerListItemComponent implements OnInit{
         const id = Number(params.get('id'));
         if (id) {
           this.currentIndex = this.cricketerList.findIndex(cricketer => cricketer.id === id);
-          this.cricketer = this.cricketerList[this.currentIndex];
+          this.cricketerData = this.cricketerList[this.currentIndex];
         }
       });
     });

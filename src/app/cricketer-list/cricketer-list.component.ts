@@ -1,16 +1,14 @@
 import {Component, OnInit} from '@angular/core';
 import {Cricketer} from "../Shared/Modules/cricketer";
-import {NgClass, NgForOf, NgIf, NgOptimizedImage, NgStyle} from "@angular/common";
+import {NgForOf, NgIf} from "@angular/common";
 import {CricketerListItemComponent} from "../cricketer-list-item/cricketer-list-item.component";
 import {CricketPlayerService} from "../Services/cricket-player.service";
-import {cricketersList} from "../Shared/mockCricketer.data";
-import {Observable} from "rxjs";
 import {RouterLink} from "@angular/router";
 
 @Component({
   selector: 'app-cricketer-list',
   standalone: true,
-  imports: [NgForOf, NgForOf, CricketerListItemComponent, NgIf, NgOptimizedImage, RouterLink],
+  imports: [NgForOf, NgForOf, CricketerListItemComponent, NgIf, RouterLink],
   templateUrl: './cricketer-list.component.html',
   styleUrl: './cricketer-list.component.css'
 })

@@ -1,10 +1,8 @@
-<div *ngIf = "cricketerData">
-  <p>ID:{{cricketerData.id}}</p>
-  <p>Name:{{cricketerData.firstName}} {{cricketerData.lastName}}</p>
-  <p>Country:{{cricketerData.country}}</p>
-  <p>Role:{{cricketerData.role}}</p>
-  <p>Active:{{cricketerData.isActive}}</p>
-  <img [src]="cricketerData.imageUrl" width="100" height="100" alt="Image"/>
+<div *ngIf="cricketerData" class="cricketer-card">
+  <p class="cricketer-id">ID: {{ cricketerData.id }}</p>
+  <p class="cricketer-name">Name: {{ cricketerData.firstName }} {{ cricketerData.lastName }}</p>
+  <p class="cricketer-country">Country: {{ cricketerData.country }}</p>
+  <p class="cricketer-role">Role: {{ cricketerData.role }}</p>
+  <p class="cricketer-status">Active: {{ cricketerData.isActive }}</p>
+  <img [src]="cricketerData.imageUrl" class="cricketer-image" alt="Image"/>
 </div>
-
-
