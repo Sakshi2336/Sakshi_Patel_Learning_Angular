@@ -24,11 +24,14 @@ export class CricketPlayerService {
     return of(cricketerId);
   }
 
+  //Add method
   addNewCricketer(newCricketer : Cricketer) : Observable<Cricketer[]>{
     this.local_cricketerList.push(newCricketer)
     return of(this.local_cricketerList);
   }
 
+
+  //Update method
   updateCricketer(updatedCricketer : Cricketer) : Observable<Cricketer[]>{
     let index = this.local_cricketerList.findIndex(cric=>cric.id === updatedCricketer.id);
     if(index !== -1){
@@ -38,6 +41,8 @@ export class CricketPlayerService {
     return of(this.local_cricketerList);
   }
 
+
+  //Delete Method
   deleteCricketer(deletedCricketer : number) : Observable<Cricketer>{
     this.local_cricketerList = this.local_cricketerList.filter(cric=>cric.id !== deletedCricketer);
 
