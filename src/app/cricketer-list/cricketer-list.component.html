@@ -8,7 +8,8 @@
       <th>Country</th>
       <th>Role</th>
       <th>Active</th>
-      <th>Images</th>
+      <th>Delete</th>
+      <th>Edit</th>
 
     </tr>
     <tr *ngFor="let cricketer of cricketerList" [routerLink]="['/cricketers',cricketer.id]">
@@ -19,7 +20,7 @@
       <td>{{ cricketer.country }}</td>
       <td>{{ cricketer.role }}</td>
       <td>{{ cricketer.isActive}}</td>
-      <td><button type="button" (click)="deleteCricketer()">Delete</button> </td>
+      <td><button type="button" (click)="deleteCricketer()">Delete</button></td>
       <td><button type="button" [routerLink]="['/modify-cricketer']">Edit</button> </td>
     </tr>
     </tbody>

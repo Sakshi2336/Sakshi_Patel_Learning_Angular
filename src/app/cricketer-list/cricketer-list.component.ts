@@ -3,7 +3,7 @@ import {Cricketer} from "../Shared/Modules/cricketer";
 import {NgForOf, NgIf} from "@angular/common";
 import {CricketerListItemComponent} from "../cricketer-list-item/cricketer-list-item.component";
 import {CricketPlayerService} from "../Services/cricket-player.service";
-import {RouterLink} from "@angular/router";
+import {ActivatedRoute, Router, RouterLink} from "@angular/router";
 
 @Component({
   selector: 'app-cricketer-list',
@@ -18,7 +18,10 @@ export class CricketerListComponent implements OnInit{
   cricketerList:Cricketer[] = [];
 
   //calling our service
-  constructor(private cricketPlayerService : CricketPlayerService) {
+  constructor(private cricketPlayerService : CricketPlayerService,
+              private route: ActivatedRoute,
+              private router :Router) {
+
   }
 
   ngOnInit() {
@@ -29,6 +32,16 @@ export class CricketerListComponent implements OnInit{
       complete:() => console.log("Cricketer data fetch complete successfully!")
     })
 
+  }
+
+  deleteCricketer():void{
+    this.route.paramMap.subscribe(params => {
+      const id = Number(params.get('id'));
+      if(id){
+        this.cricketPlayerService.deleteCricketer(id);
+        this.router.navigate(['/cricketers']);
+      }
+    });
   }
 
 

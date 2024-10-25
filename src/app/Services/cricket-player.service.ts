@@ -48,4 +48,9 @@ export class CricketPlayerService {
 
     return of(this.local_cricketerList[deletedCricketer]);
   }
+
+  //New method for assignment 6 which generate New id
+  generateNewId():number{
+    return this.local_cricketerList.length > 0 ? Math.max(...this.local_cricketerList.map(cricketer => cricketer.id)) + 1 : 1;
+  }
 }
