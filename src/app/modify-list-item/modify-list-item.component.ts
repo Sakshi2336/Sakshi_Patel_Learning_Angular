@@ -31,7 +31,7 @@ export class ModifyListItemComponent implements OnInit{
       firstName : ['',Validators.required],
       lastName : ['',Validators.required],
       role : ['',Validators.required],
-      isAdmin : [false]
+      isActive : [false]
     })
   }
 
@@ -56,7 +56,9 @@ export class ModifyListItemComponent implements OnInit{
     if (cricketer.id) {
       this.cricketerService.updateCricketer(cricketer);
     } else {
-      const newId = this.cricketerService.generateNewId(); // This method will create a new ID
+      console.log("else is working");
+      const newId = this.cricketerService.generateNewId();
+      console.log('Generated new ID:', newId);
       cricketer.id = newId;
       this.cricketerService.addNewCricketer(cricketer);
     }

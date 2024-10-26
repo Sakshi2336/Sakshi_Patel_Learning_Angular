@@ -19,38 +19,39 @@ export class CricketPlayerService {
 
   //Method 1 : accept the number as argument and give the item which ahs the same id
   // as number
-  findStudentId(userEnterNumber : number) : Observable<Cricketer | undefined>{
-    const cricketerId = this.local_cricketerList.find(cricketer => cricketer.id === userEnterNumber);
+  findStudentId(id : number) : Observable<Cricketer | undefined>{
+    const cricketerId = this.local_cricketerList.find(cricketer => cricketer.id === id);
     return of(cricketerId);
   }
 
   //Add method
-  addNewCricketer(newCricketer : Cricketer) : Observable<Cricketer[]>{
+  addNewCricketer(newCricketer : Cricketer) : Observable<Cricketer>{
     this.local_cricketerList.push(newCricketer)
-    return of(this.local_cricketerList);
+    return of(newCricketer);
   }
 
 
   //Update method
-  updateCricketer(updatedCricketer : Cricketer) : Observable<Cricketer[]>{
-    let index = this.local_cricketerList.findIndex(cric=>cric.id === updatedCricketer.id);
-    if(index !== -1){
+  updateCricketer(updatedCricketer : Cricketer) : Observable<Cricketer|undefined>{
+    const index = this.local_cricketerList.findIndex(cric => cric.id === updatedCricketer.id);
+    if(index > -1){
       this.local_cricketerList[index] = updatedCricketer;
+      return of(updatedCricketer);
     }
 
-    return of(this.local_cricketerList);
+    return of(undefined);
   }
 
 
   //Delete Method
-  deleteCricketer(deletedCricketer : number) : Observable<Cricketer>{
-    this.local_cricketerList = this.local_cricketerList.filter(cric=>cric.id !== deletedCricketer);
-
-    return of(this.local_cricketerList[deletedCricketer]);
+  deleteCricketer(id : number) : void{
+    this.local_cricketerList = this.local_cricketerList.filter(cric => cric.id !== id);
   }
 
   //New method for assignment 6 which generate New id
   generateNewId():number{
+    console.log('generateNewId called');
     return this.local_cricketerList.length > 0 ? Math.max(...this.local_cricketerList.map(cricketer => cricketer.id)) + 1 : 1;
+
   }
 }

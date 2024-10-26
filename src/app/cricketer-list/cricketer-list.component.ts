@@ -34,14 +34,8 @@ export class CricketerListComponent implements OnInit{
 
   }
 
-  deleteCricketer():void{
-    this.route.paramMap.subscribe(params => {
-      const id = Number(params.get('id'));
-      if(id){
-        this.cricketPlayerService.deleteCricketer(id);
-        this.router.navigate(['/cricketers']);
-      }
-    });
+  deleteCricketer(id:number):void{
+    this.cricketerList = this.cricketerList.filter(cricketer => cricketer.id !== id);
   }
 
 
