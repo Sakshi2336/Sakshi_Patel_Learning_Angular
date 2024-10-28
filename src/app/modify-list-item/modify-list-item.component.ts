@@ -27,8 +27,8 @@ export class ModifyListItemComponent implements OnInit{
     private router : Router
   ) {
     this.cricketerForm = this.fb.group({
-      id : ['',Validators.required],
-      firstName : ['',Validators.required],
+      id : ['',[Validators.required,Validators.pattern(/^[0-9]+$/)]],
+      firstName : ['',Validators.required,Validators.pattern(/^[A-Za-z]*$/)],
       lastName : ['',Validators.required],
       role : ['',Validators.required],
       isActive : [false]
