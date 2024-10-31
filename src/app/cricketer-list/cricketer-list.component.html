@@ -7,7 +7,7 @@
       <p>Role :{{ cricketer.role }}</p>
       <p>Is Active :{{ cricketer.isActive}}</p>
       <p><button type="button" (click)="deleteCricketer(cricketer.id)">Delete</button>
-      <button type="button" [routerLink]="['/modify-cricketer']">Edit</button> </p>
+      <button type="button" (click)="editButton()">Edit</button> </p>
     </div>
 
 
