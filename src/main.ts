@@ -6,6 +6,10 @@ import {CricketerListComponent} from "./app/cricketer-list/cricketer-list.compon
 import {ModifyListItemComponent} from "./app/modify-list-item/modify-list-item.component";
 import {PageNotFoundComponent} from "./app/page-not-found/page-not-found.component";
 import {CricketerListItemComponent} from "./app/cricketer-list-item/cricketer-list-item.component";
+import {provideHttpClient} from "@angular/common/http";
+import {importProvidersFrom} from "@angular/core";
+import {HttpClientInMemoryWebApiModule} from "angular-in-memory-web-api";
+import {InMemoryDataService} from "./app/Services/in-memory-data.service";
 
 
 const routes: Routes = [
@@ -17,5 +21,9 @@ const routes: Routes = [
 ];
 
 bootstrapApplication(AppComponent, {
-  providers: [provideRouter(routes)]
-}).then(r => console.log('Bootstrap successful'));
+  providers: [
+    provideHttpClient(), // Ensure that HTTP interceptors are properly configured
+    provideRouter(routes),
+    importProvidersFrom(HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, { delay: 1000 })) // Import providers dynamically
+  ],
+}).catch((err) => console.error(err));

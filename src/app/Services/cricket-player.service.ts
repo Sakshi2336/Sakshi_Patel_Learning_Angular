@@ -1,51 +1,51 @@
 import { Injectable } from '@angular/core';
 import {Cricketer} from "../Shared/Modules/cricketer";
 import {cricketersList} from "../Shared/mockCricketer.data";
-import {Observable, of} from "rxjs";
+import {catchError, Observable, of, throwError} from "rxjs";
+import {HttpClient,HttpErrorResponse} from "@angular/common/http";
 
 @Injectable({
   providedIn: 'root'
 })
 export class CricketPlayerService {
 
+  private apiUrl = 'api/cricketers'; //url to web api
   //local copy of cricketer list
   private local_cricketerList:Cricketer[] = cricketersList;
-  constructor() { }
+  constructor(private http:HttpClient) { }
 
+  //CRUD operations using HTTP Requests
+  //All operations we need are:
+  // Get, post, put, delete
   //this method will return the array from mock file
   getCricketer():Observable<Cricketer[]>{
-    return of (cricketersList);
+    return this.http.get<Cricketer[]>(this.apiUrl).pipe(catchError(this.handleError));
   }
 
   //Method 1 : accept the number as argument and give the item which ahs the same id
   // as number
-  findStudentId(id : number) : Observable<Cricketer | undefined>{
-    const cricketerId = this.local_cricketerList.find(cricketer => cricketer.id === id);
-    return of(cricketerId);
+  findStudentId(id : number) : Observable<Cricketer>{
+    return this.http.get<Cricketer>(`${this.apiUrl}/${id}`).pipe(catchError(this.handleError)); //return a single student
   }
 
   //Add method
   addNewCricketer(newCricketer : Cricketer) : Observable<Cricketer>{
-    this.local_cricketerList.push(newCricketer)
-    return of(newCricketer);
+    newCricketer.id = this.generateNewId();
+    return this.http.post<Cricketer>(this.apiUrl, newCricketer).pipe(catchError(this.handleError));
   }
 
 
   //Update method
   updateCricketer(updatedCricketer : Cricketer) : Observable<Cricketer|undefined>{
-    const index = this.local_cricketerList.findIndex(cric => cric.id === updatedCricketer.id);
-    if(index > -1){
-      this.local_cricketerList[index] = updatedCricketer;
-      return of(updatedCricketer);
-    }
-
-    return of(undefined);
+    const url = `${this.apiUrl}/${updatedCricketer.id}`;
+    return this.http.put<Cricketer>(url, updatedCricketer).pipe(catchError(this.handleError));
   }
 
 
   //Delete Method
-  deleteCricketer(id : number) : void{
-    this.local_cricketerList = this.local_cricketerList.filter(cric => cric.id !== id);
+  deleteCricketer(id : number) : Observable<{ }>{
+    const url = `${this.apiUrl}/${id}`;
+    return this.http.delete(url).pipe(catchError(this.handleError));
   }
 
   //New method for assignment 6 which generate New id
@@ -53,5 +53,10 @@ export class CricketPlayerService {
     console.log('generateNewId called');
     return this.local_cricketerList.length > 0 ? Math.max(...this.local_cricketerList.map(cricketer => cricketer.id)) + 1 : 1;
 
+  }
+
+  private handleError(error: HttpErrorResponse) {
+    console.error('API error:', error);
+    return throwError(() => new Error('Server error, please try again.'));
   }
 }
