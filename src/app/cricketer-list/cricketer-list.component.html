@@ -1,14 +1,17 @@
 
-    <div *ngFor="let cricketer of cricketerList">
 
-      <p>ID : {{ cricketer.id }}</p>
-      <p>Name :{{ cricketer.firstName }} {{ cricketer.lastName }}</p>
-      <p>Country :{{ cricketer.country }}</p>
-      <p>Role :{{ cricketer.role }}</p>
-      <p>Is Active :{{ cricketer.isActive}}</p>
-      <p><button type="button" (click)="deleteCricketer(cricketer.id)">Delete</button>
-      <button type="button" (click)="editButton()">Edit</button> </p>
-    </div>
 
+<div *ngFor="let cricketer of cricketerList" [routerLink]="['/cricketers',cricketer.id ]">
+
+  <p>ID : {{ cricketer.id }}</p>
+  <p>Name :{{ cricketer.firstName }} {{ cricketer.lastName }}</p>
+  <p>Country :{{ cricketer.country }}</p>
+  <p>Role :{{ cricketer.role }}</p>
+  <p>Is Active :{{ cricketer.isActive}}</p>
+  <p><button type="button" (click)="deleteCricketer(cricketer.id)">Delete</button>
+    <button type="button" (click)="editButton()">Edit</button> </p>
+</div>
+
+<div *ngIf="error" class="error">{{ error }}</div>
 
 

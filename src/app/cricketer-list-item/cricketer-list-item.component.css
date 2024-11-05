@@ -1,11 +1,7 @@
-/*Ensure the the list item allows a background override
-- Mathew */
 
-:host {
-  display: block;
-  width: 100%;
+div{
+  text-align: center;
 }
-
 .cricketer-detail {
   border: 1px solid #ddd;
   padding: 16px;
@@ -16,52 +12,30 @@
 h2 {
   margin-top: 0;
 }
-
-.cricketer-detail {
-  border: 1px solid #ddd;
-  padding: 16px;
-  margin-top: 16px;
-  background-color: #f9f9f9;
-  text-align: center; /* Center the text inside the div */
-  max-width: 600px; /* Optional: Set a max-width for the div */
-  margin-left: auto; /* Center the div horizontally */
-  margin-right: auto; /* Center the div horizontally */
-
-
+/* Button Styles */
+button {
+  background-color: #007bff; /* Blue background */
+  border: none; /* Remove default border */
+  color: white; /* White text color */
+  padding: 10px 20px; /* Padding around text */
+  text-align: center; /* Center text */
+  text-decoration: none; /* Remove underline */
+  display: inline-block; /* Align buttons inline */
+  font-size: 16px; /* Font size */
+  margin: 5px 10px; /* Space between buttons */
+  cursor: pointer; /* Pointer cursor on hover */
+  border-radius: 5px; /* Rounded corners */
+  transition: background-color 0.3s ease; /* Smooth transition for hover effect */
 }
 
-.cricketer-card {
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  padding: 16px;
-  margin: 10px;
-  background-color: #f9f9f9;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s;
+/* Hover Effect */
+button:hover {
+  background-color: #0056b3; /* Darker blue on hover */
 }
 
-.cricketer-card:hover {
-  transform: scale(1.05);
+/* Disabled Button State */
+button:disabled {
+  background-color: #ccc; /* Gray background for disabled state */
+  color: #666; /* Darker gray text for disabled state */
+  cursor: not-allowed; /* Change cursor to not-allowed */
 }
-
-.cricketer-id {
-  font-weight: bold;
-  color: #333;
-}
-
-.cricketer-name {
-  font-size: 1.2em;
-  color: #007bff;
-}
-
-.cricketer-country,
-.cricketer-role,
-.cricketer-status {
-  color: #555;
-}
-
-.cricketer-image {
-  border-radius: 50%;
-  margin-top: 10px;
-}
-

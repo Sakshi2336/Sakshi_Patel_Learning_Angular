@@ -33,5 +33,9 @@
   <!-- Add and update Buttons  -->
   <button type="submit">Submit</button>
 
+  <!-- Back Button -->
+  <button type="button" (click)="navigateToCricketerList()">Back to List</button>
+
 
 </form>
+<div *ngIf="error" class="error">{{ error }}</div>

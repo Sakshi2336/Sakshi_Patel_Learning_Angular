@@ -18,6 +18,7 @@ export class ModifyListItemComponent implements OnInit{
   // form group
   cricketerForm : FormGroup;
   cricketer : Cricketer | undefined;
+  error: string | null = null;
 
   //Adding form builder and validators
   constructor(
@@ -36,13 +37,17 @@ export class ModifyListItemComponent implements OnInit{
   }
 
   ngOnInit(): void {
-    const id = this.route.snapshot.paramMap.get('id');
+    const id = Number(this.route.snapshot.paramMap.get('id'));
     if (id) {
-      this.cricketerService.findStudentId(+id).subscribe(cricketer => {
-        if(cricketer) {
-          this.cricketer = cricketer;
-
-          this.cricketerForm.patchValue(cricketer);
+      this.cricketerService.findStudentId(+id).subscribe({
+        next: cricketer =>{
+          if(cricketer) {
+            this.cricketerForm.patchValue(cricketer);
+          }
+        },
+        error: err => {
+          this.error = 'Error fetching cricketer';
+          console.error('Error fetching cricketer:', err);
         }
       });
     }
@@ -51,18 +56,25 @@ export class ModifyListItemComponent implements OnInit{
 
   //Add and update method in onSubmit method
   onSubmit(): void {
-    const cricketer: Cricketer = this.cricketerForm.value;
+    if (this.cricketerForm.valid) {
+      //Iff the form is valid, it extracts the form values into a student object of type User
+      const cricketer: Cricketer = this.cricketerForm.value;
+      /*
+      Here we have a little bit of logic, first iff the student.id
+      and just being updated
 
-    if (cricketer.id) {
-      this.cricketerService.updateCricketer(cricketer);
-    } else {
-      console.log("else is working");
-      const newId = this.cricketerService.generateNewId();
-      console.log('Generated new ID:', newId);
-      cricketer.id = newId;
-      this.cricketerService.addNewCricketer(cricketer);
+      if it does not exist, we know that the student is new and we need to add it to the list
+       */
+      if (cricketer.id) {
+        this.cricketerService.updateCricketer(cricketer).subscribe(() => this.router.navigate(['/cricketers']));
+      } else {
+        cricketer.id = this.cricketerService.generateNewId();
+        this.cricketerService.addNewCricketer(cricketer).subscribe(() => this.router.navigate(['/cricketers']));
+      }
     }
+  }
 
+  navigateToCricketerList(): void {
     this.router.navigate(['/cricketers']);
   }
 

@@ -1,8 +1,15 @@
-<div *ngIf="cricketerData" class="cricketer-card">
-  <p class="cricketer-id">ID: {{ cricketerData.id }}</p>
-  <p class="cricketer-name">Name: {{ cricketerData.firstName }} {{ cricketerData.lastName }}</p>
-  <p class="cricketer-country">Country: {{ cricketerData.country }}</p>
-  <p class="cricketer-role">Role: {{ cricketerData.role }}</p>
-  <p class="cricketer-status">Active: {{ cricketerData.isActive }}</p>
-  <img [src]="cricketerData.imageUrl" class="cricketer-image" alt="Image"/>
+<div *ngIf="cricketerData" class="cricketer-detail">
+  <h2>Cricketer Details</h2>
+  <p><strong>ID: </strong>{{ cricketerData.id }}</p>
+  <p><strong>Name: </strong>{{ cricketerData.firstName }} {{ cricketerData.lastName }}</p>
+  <p><strong>Country: </strong>{{ cricketerData.country }}</p>
+  <p><strong>Role: </strong>{{ cricketerData.role }}</p>
+  <p><strong>Active: </strong>{{ cricketerData.isActive }}</p>
+  <img [src]="cricketerData.imageUrl" class="cricketer-image" alt="Image" height="200"/>
+  <br>
+  <button (click)="goBackward()" [disabled]="currentIndex === 0">Previous</button>
+  <button (click)="goForward()" [disabled]="currentIndex === cricketerList.length - 1">Next</button>
+  <button (click)="goBack()">Back to Student List</button>
 </div>
+
+<div *ngIf="error" class="error">{{ error }}</div>

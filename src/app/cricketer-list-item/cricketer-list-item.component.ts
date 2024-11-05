@@ -14,12 +14,13 @@ import {CricketPlayerService} from "../Services/cricket-player.service";
   styleUrl: './cricketer-list-item.component.css'
 })
 export class CricketerListItemComponent implements OnInit{
-//This looks good
+
   //@Input() cricketerData?: Cricketer;
 
   cricketerData: Cricketer | undefined;
   cricketerList: Cricketer[] = [];
   currentIndex: number = 0;
+  error: string|null = null;//to store any errors
 
   constructor(
     private route: ActivatedRoute,
@@ -28,15 +29,46 @@ export class CricketerListItemComponent implements OnInit{
   ) {}
 
   ngOnInit(): void {
-    this.cricketPlayerService.getCricketer().subscribe(cricketers => {
-      this.cricketerList = cricketers;
-      this.route.paramMap.subscribe(params => {
-        const id = Number(params.get('id'));
-        if (id) {
-          this.currentIndex = this.cricketerList.findIndex(cricketer => cricketer.id === id);
-          this.cricketerData = this.cricketerList[this.currentIndex];
-        }
-      });
+    this.cricketPlayerService.getCricketer().subscribe({
+      next:(cricketers:Cricketer[])=>{
+        this.cricketerList = cricketers;
+        this.error = null; // Clear any previous errors
+
+        // Subscribe to paramMap changes to update the page view
+        this.route.paramMap.subscribe(params => {
+          const id = Number(params.get('id'));
+          if(id){
+            this.currentIndex = this.cricketerList.findIndex(cricketer => cricketer.id === id);
+            this.cricketerData = this.cricketerList[this.currentIndex];
+          }
+        });
+      },
+      error:(err) =>{
+        this.error = 'Error fetching students';
+        console.error('Error fetching students:',err);
+      }
     });
   }
+
+  //function to go back to student-list view
+  goBack(): void {
+    this.router.navigate(['/cricketers']);
+  }
+
+//function to move foward through array with overflow protection
+  goForward(): void {
+    if (this.currentIndex < this.cricketerList.length - 1) {
+      this.currentIndex++;
+      this.router.navigate(['/cricketers', this.cricketerList[this.currentIndex].id]);
+    }
+  }
+//function to move backward through array with overflow protection
+  goBackward(): void {
+    if (this.currentIndex > 0) {
+      this.currentIndex--;
+      this.router.navigate(['/cricketers', this.cricketerList[this.currentIndex].id]);
+    }
+  }
+
+
 }
