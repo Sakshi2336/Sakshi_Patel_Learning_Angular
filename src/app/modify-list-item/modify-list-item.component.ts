@@ -3,12 +3,14 @@ import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from "@angular/
 import {ActivatedRoute, Router} from "@angular/router";
 import {CricketPlayerService} from "../Services/cricket-player.service";
 import {Cricketer} from "../Shared/Modules/cricketer";
+import {NgIf} from "@angular/common";
 
 @Component({
   selector: 'app-modify-list-item',
   standalone: true,
   imports: [
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgIf
   ],
   templateUrl: './modify-list-item.component.html',
   styleUrl: './modify-list-item.component.css'
@@ -28,10 +30,10 @@ export class ModifyListItemComponent implements OnInit{
     private router : Router
   ) {
     this.cricketerForm = this.fb.group({
-      id : ['',[Validators.required,Validators.pattern(/^[0-9]+$/)]],
-      firstName : ['',Validators.required,Validators.pattern(/^[A-Za-z]*$/)],
-      lastName : ['',Validators.required],
-      role : ['',Validators.required],
+      id : [cricketerService.generateNewId()],
+      firstName : [''],
+      lastName : [''],
+      role : [''],
       isActive : [false]
     })
   }
@@ -39,7 +41,7 @@ export class ModifyListItemComponent implements OnInit{
   ngOnInit(): void {
     const id = Number(this.route.snapshot.paramMap.get('id'));
     if (id) {
-      this.cricketerService.findStudentId(+id).subscribe({
+      this.cricketerService.findStudentId(id).subscribe({
         next: cricketer =>{
           if(cricketer) {
             this.cricketerForm.patchValue(cricketer);
@@ -57,18 +59,12 @@ export class ModifyListItemComponent implements OnInit{
   //Add and update method in onSubmit method
   onSubmit(): void {
     if (this.cricketerForm.valid) {
-      //Iff the form is valid, it extracts the form values into a student object of type User
       const cricketer: Cricketer = this.cricketerForm.value;
-      /*
-      Here we have a little bit of logic, first iff the student.id
-      and just being updated
-
-      if it does not exist, we know that the student is new and we need to add it to the list
-       */
       if (cricketer.id) {
         this.cricketerService.updateCricketer(cricketer).subscribe(() => this.router.navigate(['/cricketers']));
       } else {
         cricketer.id = this.cricketerService.generateNewId();
+        console.log(cricketer.id);
         this.cricketerService.addNewCricketer(cricketer).subscribe(() => this.router.navigate(['/cricketers']));
       }
     }

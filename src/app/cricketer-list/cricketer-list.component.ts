@@ -53,8 +53,8 @@ export class CricketerListComponent implements OnInit{
     this.cricketerList = this.cricketerList.filter(cricketer => cricketer.id !== id);
   }
 
-  editButton():void{
-    this.router.navigate(['/modify-cricketer']);
+  editButton(id:number):void{
+    this.router.navigate(['/modify-cricketer',id]);
   }
 
 

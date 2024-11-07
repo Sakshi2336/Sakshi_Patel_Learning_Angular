@@ -16,7 +16,7 @@ const routes: Routes = [
   {path:'', redirectTo: '/cricketers', pathMatch: 'full'},
   { path: 'cricketers', component: CricketerListComponent },
   { path: 'cricketers/:id', component: CricketerListItemComponent },
-  {path:'modify-cricketer', component: ModifyListItemComponent},
+  {path:'modify-cricketer/:id', component: ModifyListItemComponent},
   {path: '**', component:PageNotFoundComponent}
 ];
 
