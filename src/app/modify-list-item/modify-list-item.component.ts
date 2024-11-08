@@ -41,6 +41,7 @@ export class ModifyListItemComponent implements OnInit{
   ngOnInit(): void {
     const id = Number(this.route.snapshot.paramMap.get('id'));
     if (id) {
+      console.log("OnInit is working");
       this.cricketerService.findStudentId(id).subscribe({
         next: cricketer =>{
           if(cricketer) {
@@ -61,8 +62,10 @@ export class ModifyListItemComponent implements OnInit{
     if (this.cricketerForm.valid) {
       const cricketer: Cricketer = this.cricketerForm.value;
       if (cricketer.id) {
+        console.log(cricketer.id);
         this.cricketerService.updateCricketer(cricketer).subscribe(() => this.router.navigate(['/cricketers']));
       } else {
+        console.log(cricketer.id);
         cricketer.id = this.cricketerService.generateNewId();
         console.log(cricketer.id);
         this.cricketerService.addNewCricketer(cricketer).subscribe(() => this.router.navigate(['/cricketers']));

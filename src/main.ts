@@ -17,6 +17,7 @@ const routes: Routes = [
   { path: 'cricketers', component: CricketerListComponent },
   { path: 'cricketers/:id', component: CricketerListItemComponent },
   {path:'modify-cricketer/:id', component: ModifyListItemComponent},
+  {path:'modify-cricketer', component: ModifyListItemComponent},
   {path: '**', component:PageNotFoundComponent}
 ];
 

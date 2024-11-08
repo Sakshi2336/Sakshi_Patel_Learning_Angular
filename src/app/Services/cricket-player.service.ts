@@ -23,7 +23,7 @@ export class CricketPlayerService {
   }
 
   //Method 1 : accept the number as argument and give the item which ahs the same id
-  // as number
+  // as number api/cric/1
   findStudentId(id : number) : Observable<Cricketer>{
     return this.http.get<Cricketer>(`${this.apiUrl}/${id}`).pipe(catchError(this.handleError)); //return a single student
   }
@@ -35,7 +35,7 @@ export class CricketPlayerService {
   }
 
 
-  //Update method
+  //Update
   updateCricketer(updatedCricketer : Cricketer) : Observable<Cricketer|undefined>{
     const url = `${this.apiUrl}/${updatedCricketer.id}`;
     return this.http.put<Cricketer>(url, updatedCricketer).pipe(catchError(this.handleError));
