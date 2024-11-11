@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Cricketer} from "../Shared/Modules/cricketer";
-import {NgIf} from "@angular/common";
+import {CurrencyPipe, DatePipe, NgIf, UpperCasePipe} from "@angular/common";
 import {Observable} from "rxjs";
 import { NgOptimizedImage } from '@angular/common'
 import {ActivatedRoute, Router} from "@angular/router";
@@ -9,7 +9,7 @@ import {CricketPlayerService} from "../Services/cricket-player.service";
 @Component({
   selector: 'app-cricketer-list-item',
   standalone: true,
-  imports: [NgIf,NgOptimizedImage],
+  imports: [NgIf, NgOptimizedImage, UpperCasePipe, DatePipe, CurrencyPipe],
   templateUrl: './cricketer-list-item.component.html',
   styleUrl: './cricketer-list-item.component.css'
 })

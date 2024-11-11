@@ -4,9 +4,11 @@
 <div *ngFor="let cricketer of cricketerList" [routerLink]="['/cricketers',cricketer.id ]">
 
   <p>ID : {{ cricketer.id }}</p>
-  <p>Name :{{ cricketer.firstName }} {{ cricketer.lastName }}</p>
+  <p>Name :{{ cricketer.firstName | uppercase }} {{ cricketer.lastName | uppercase }}</p>
+  <p>Date of Birth : {{cricketer.dob | date}}</p>
   <p>Country :{{ cricketer.country }}</p>
   <p>Role :{{ cricketer.role }}</p>
+  <p>Net Worth : {{cricketer.netWorth | currency : 'CAD'}} million</p>
   <p>Is Active :{{ cricketer.isActive}}</p>
   <p><button type="button" (click)="deleteCricketer(cricketer.id)">Delete</button>
     <button type="button" (click)="editButton(cricketer.id)">Edit</button> </p>

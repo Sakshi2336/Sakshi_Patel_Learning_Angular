@@ -1,9 +1,11 @@
 <div *ngIf="cricketerData" class="cricketer-detail">
   <h2>Cricketer Details</h2>
   <p><strong>ID: </strong>{{ cricketerData.id }}</p>
-  <p><strong>Name: </strong>{{ cricketerData.firstName }} {{ cricketerData.lastName }}</p>
+  <p><strong>Name: </strong>{{ cricketerData.firstName | uppercase }} {{ cricketerData.lastName | uppercase}}</p>
+  <p><strong>Date of Birth : </strong>{{cricketerData.dob | date}}</p>
   <p><strong>Country: </strong>{{ cricketerData.country }}</p>
   <p><strong>Role: </strong>{{ cricketerData.role }}</p>
+  <p><strong>Net Worth : </strong>{{cricketerData.netWorth | currency : 'CAD'}} million</p>
   <p><strong>Active: </strong>{{ cricketerData.isActive }}</p>
   <img [src]="cricketerData.imageUrl" class="cricketer-image" alt="Image" height="200"/>
   <br>

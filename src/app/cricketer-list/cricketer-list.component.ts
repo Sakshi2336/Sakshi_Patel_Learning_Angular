@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Cricketer} from "../Shared/Modules/cricketer";
-import {NgForOf, NgIf} from "@angular/common";
+import {CurrencyPipe, DatePipe, NgForOf, NgIf, UpperCasePipe} from "@angular/common";
 import {CricketerListItemComponent} from "../cricketer-list-item/cricketer-list-item.component";
 import {CricketPlayerService} from "../Services/cricket-player.service";
 import {ActivatedRoute, Router, RouterLink} from "@angular/router";
@@ -9,7 +9,7 @@ import {cricketersList} from "../Shared/mockCricketer.data";
 @Component({
   selector: 'app-cricketer-list',
   standalone: true,
-  imports: [NgForOf, NgForOf, CricketerListItemComponent, NgIf, RouterLink],
+  imports: [NgForOf, NgForOf, CricketerListItemComponent, NgIf, RouterLink, UpperCasePipe, DatePipe, CurrencyPipe],
   templateUrl: './cricketer-list.component.html',
   styleUrl: './cricketer-list.component.css'
 })
