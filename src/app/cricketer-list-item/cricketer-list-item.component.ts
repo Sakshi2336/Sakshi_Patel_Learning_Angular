@@ -1,15 +1,16 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Cricketer} from "../Shared/Modules/cricketer";
-import {CurrencyPipe, DatePipe, NgIf, UpperCasePipe} from "@angular/common";
+import {CurrencyPipe, DatePipe, NgClass, NgIf, UpperCasePipe} from "@angular/common";
 import {Observable} from "rxjs";
 import { NgOptimizedImage } from '@angular/common'
 import {ActivatedRoute, Router} from "@angular/router";
 import {CricketPlayerService} from "../Services/cricket-player.service";
+import {CricketerStatusPipe} from "../pipes/cricketer-status.pipe";
 
 @Component({
   selector: 'app-cricketer-list-item',
   standalone: true,
-  imports: [NgIf, NgOptimizedImage, UpperCasePipe, DatePipe, CurrencyPipe],
+  imports: [NgIf, NgOptimizedImage, UpperCasePipe, DatePipe, CurrencyPipe, CricketerStatusPipe, NgClass],
   templateUrl: './cricketer-list-item.component.html',
   styleUrl: './cricketer-list-item.component.css'
 })

@@ -45,3 +45,15 @@ button[type="button"]:nth-child(1) {
 button[type="button"]:nth-child(1):hover {
   background-color: #c82333; /* Darker red on hover */
 }
+
+
+.active {
+  color: green;
+  font-weight: bold;
+}
+
+.inactive {
+  color: red;
+  font-weight: bold;
+}
+

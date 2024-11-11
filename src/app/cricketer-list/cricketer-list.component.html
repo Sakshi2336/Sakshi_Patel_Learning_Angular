@@ -9,7 +9,9 @@
   <p>Country :{{ cricketer.country }}</p>
   <p>Role :{{ cricketer.role }}</p>
   <p>Net Worth : {{cricketer.netWorth | currency : 'CAD'}} million</p>
-  <p>Is Active :{{ cricketer.isActive}}</p>
+  <p [ngClass]="cricketer.isActive | cricketerStatus">
+    Is Active: {{ cricketer.isActive ? 'Active' : 'Inactive' }}
+  </p>
   <p><button type="button" (click)="deleteCricketer(cricketer.id)">Delete</button>
     <button type="button" (click)="editButton(cricketer.id)">Edit</button> </p>
 </div>

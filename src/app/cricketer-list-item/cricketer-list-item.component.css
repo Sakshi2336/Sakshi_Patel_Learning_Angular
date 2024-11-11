@@ -39,3 +39,13 @@ button:disabled {
   color: #666; /* Darker gray text for disabled state */
   cursor: not-allowed; /* Change cursor to not-allowed */
 }
+
+.active {
+  color: green;
+  font-weight: bold;
+}
+
+.inactive {
+  color: red;
+  font-weight: bold;
+}

@@ -6,7 +6,9 @@
   <p><strong>Country: </strong>{{ cricketerData.country }}</p>
   <p><strong>Role: </strong>{{ cricketerData.role }}</p>
   <p><strong>Net Worth : </strong>{{cricketerData.netWorth | currency : 'CAD'}} million</p>
-  <p><strong>Active: </strong>{{ cricketerData.isActive }}</p>
+  <p [ngClass]="cricketerData.isActive | cricketerStatus">
+    Is Active: {{ cricketerData.isActive ? 'Active' : 'Inactive' }}
+  </p>
   <img [src]="cricketerData.imageUrl" class="cricketer-image" alt="Image" height="200"/>
   <br>
   <button (click)="goBackward()" [disabled]="currentIndex === 0">Previous</button>
