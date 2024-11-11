@@ -57,3 +57,19 @@ button[type="button"]:nth-child(1):hover {
   font-weight: bold;
 }
 
+.allRounder-color {
+  color: red;
+}
+
+.batsman-color {
+  color: blue;
+}
+
+.bowler-color {
+  color: green;
+}
+
+.default-color {
+  color: black; /* Default color for other roles */
+}
+
