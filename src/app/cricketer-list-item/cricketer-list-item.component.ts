@@ -6,11 +6,12 @@ import { NgOptimizedImage } from '@angular/common'
 import {ActivatedRoute, Router} from "@angular/router";
 import {CricketPlayerService} from "../Services/cricket-player.service";
 import {CricketerStatusPipe} from "../pipes/cricketer-status.pipe";
+import {CricketerRolePipe} from "../pipes/cricketer-role.pipe";
 
 @Component({
   selector: 'app-cricketer-list-item',
   standalone: true,
-  imports: [NgIf, NgOptimizedImage, UpperCasePipe, DatePipe, CurrencyPipe, CricketerStatusPipe, NgClass],
+  imports: [NgIf, NgOptimizedImage, UpperCasePipe, DatePipe, CurrencyPipe, CricketerStatusPipe, NgClass, CricketerRolePipe],
   templateUrl: './cricketer-list-item.component.html',
   styleUrl: './cricketer-list-item.component.css'
 })

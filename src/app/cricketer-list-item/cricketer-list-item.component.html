@@ -4,7 +4,9 @@
   <p><strong>Name: </strong>{{ cricketerData.firstName | uppercase }} {{ cricketerData.lastName | uppercase}}</p>
   <p><strong>Date of Birth : </strong>{{cricketerData.dob | date}}</p>
   <p><strong>Country: </strong>{{ cricketerData.country }}</p>
-  <p><strong>Role: </strong>{{ cricketerData.role }}</p>
+  <p [ngClass]="cricketerData.role | cricketerRole">
+    Role : {{cricketerData.role}}
+  </p>
   <p><strong>Net Worth : </strong>{{cricketerData.netWorth | currency : 'CAD'}} million</p>
   <p [ngClass]="cricketerData.isActive | cricketerStatus">
     Is Active: {{ cricketerData.isActive ? 'Active' : 'Inactive' }}
