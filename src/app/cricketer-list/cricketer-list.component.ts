@@ -6,12 +6,13 @@ import {CricketPlayerService} from "../Services/cricket-player.service";
 import {ActivatedRoute, Router, RouterLink} from "@angular/router";
 import {cricketersList} from "../Shared/mockCricketer.data";
 import {CricketerStatusPipe} from "../pipes/cricketer-status.pipe";
-import {CricketerRolePipe} from "../pipes/cricketer-role.pipe";
+import {CricketerNameAgePipe} from "../pipes/cricketer-name-age.pipe";
+
 
 @Component({
   selector: 'app-cricketer-list',
   standalone: true,
-  imports: [NgForOf, NgForOf, CricketerListItemComponent, NgIf, RouterLink, UpperCasePipe, DatePipe, CurrencyPipe, CricketerStatusPipe, NgClass, CricketerRolePipe],
+  imports: [NgForOf, NgForOf, CricketerListItemComponent, NgIf, RouterLink, UpperCasePipe, DatePipe, CurrencyPipe, CricketerStatusPipe, NgClass, CricketerNameAgePipe],
   templateUrl: './cricketer-list.component.html',
   styleUrl: './cricketer-list.component.css'
 })

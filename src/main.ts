@@ -16,7 +16,8 @@ const routes: Routes = [
   {path:'', redirectTo: '/cricketers', pathMatch: 'full'},
   { path: 'cricketers', component: CricketerListComponent },
   { path: 'cricketers/:id', loadComponent:() => import('./app/cricketer-list-item/cricketer-list-item.component').then(m => m.CricketerListItemComponent)},
-  {path:'modify-cricketer/:id', component:ModifyListItemComponent},
+  //{path:'modify-cricketer/:id', component:ModifyListItemComponent},
+  {path:'modify-cricketer/:id', loadComponent:() => import('./app/modify-list-item/modify-list-item.component').then(m => m.ModifyListItemComponent)},
   {path:'modify-cricketer', loadComponent:() => import('./app/modify-list-item/modify-list-item.component').then(m => m.ModifyListItemComponent)},
   {path: '**', loadComponent:() => import('./app/page-not-found/page-not-found.component').then(m => m.PageNotFoundComponent)},
 ];
@@ -25,6 +26,6 @@ bootstrapApplication(AppComponent, {
   providers: [
     provideHttpClient(), // Ensure that HTTP interceptors are properly configured
     provideRouter(routes),
-    importProvidersFrom(HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, { delay: 1000 })) // Import providers dynamically
+    importProvidersFrom(HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, { delay: 1 })) // Import providers dynamically
   ],
 }).catch((err) => console.error(err));

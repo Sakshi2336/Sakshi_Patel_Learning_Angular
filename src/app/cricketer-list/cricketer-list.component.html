@@ -4,18 +4,17 @@
 <div *ngFor="let cricketer of cricketerList" [routerLink]="['/cricketers',cricketer.id ]">
 
   <p>ID : {{ cricketer.id }}</p>
-  <p>Name :{{ cricketer.firstName | uppercase }} {{ cricketer.lastName | uppercase }}</p>
+  <p>First Name(Age) :{{ cricketer |cricketerNameAge }}</p>
+  <p>Last Name: {{ cricketer.lastName | uppercase }}</p>
   <p>Date of Birth : {{cricketer.dob | date}}</p>
   <p>Country :{{ cricketer.country }}</p>
-  <p [ngClass]="cricketer.role | cricketerRole">
-    Role : {{cricketer.role}}
-  </p>
+  <p>Role : {{cricketer.role}}</p>
   <p>Net Worth : {{cricketer.netWorth | currency : 'CAD'}} million</p>
   <p [ngClass]="cricketer.isActive | cricketerStatus">
-    Is Active: {{ cricketer.isActive ? 'Active' : 'Inactive' }}
+    Is Active: {{ cricketer.isActive}}
   </p>
   <p><button type="button" (click)="deleteCricketer(cricketer.id)">Delete</button>
-    <button type="button" (click)="editButton(cricketer.id)">Edit</button> </p>
+    <button type="button" (click)="editButton(cricketer.id); $event.stopPropagation()">Edit</button> </p>
 </div>
 
 <div *ngIf="error" class="error">{{ error }}</div>
