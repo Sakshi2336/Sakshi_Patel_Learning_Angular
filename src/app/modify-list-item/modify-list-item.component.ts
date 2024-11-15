@@ -33,6 +33,7 @@ export class ModifyListItemComponent implements OnInit{
       id : [cricketerService.generateNewId()],
       firstName : [''],
       lastName : [''],
+      age : [''],
       country : [''],
       dob : [''],
       netWorth : [''],
