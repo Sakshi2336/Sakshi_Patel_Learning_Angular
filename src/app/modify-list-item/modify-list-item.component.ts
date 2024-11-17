@@ -4,13 +4,17 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {CricketPlayerService} from "../Services/cricket-player.service";
 import {Cricketer} from "../Shared/Modules/cricketer";
 import {NgIf} from "@angular/common";
+import {HighlightOnFocusDirective} from "../directives/highlight-on-focus.directive";
+import {AutoFocusDirective} from "../directives/auto-focus.directive";
 
 @Component({
   selector: 'app-modify-list-item',
   standalone: true,
   imports: [
     ReactiveFormsModule,
-    NgIf
+    NgIf,
+    HighlightOnFocusDirective,
+    AutoFocusDirective
   ],
   templateUrl: './modify-list-item.component.html',
   styleUrl: './modify-list-item.component.css'
