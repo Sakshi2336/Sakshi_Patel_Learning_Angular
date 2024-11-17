@@ -7,12 +7,13 @@ import {ActivatedRoute, Router, RouterLink} from "@angular/router";
 import {cricketersList} from "../Shared/mockCricketer.data";
 import {CricketerStatusPipe} from "../pipes/cricketer-status.pipe";
 import {CricketerNameAgePipe} from "../pipes/cricketer-name-age.pipe";
+import {HoverHighlightDirective} from "../directives/hover-highlight.directive";
 
 
 @Component({
   selector: 'app-cricketer-list',
   standalone: true,
-  imports: [NgForOf, NgForOf, CricketerListItemComponent, NgIf, RouterLink, UpperCasePipe, DatePipe, CurrencyPipe, CricketerStatusPipe, NgClass, CricketerNameAgePipe],
+  imports: [NgForOf, NgForOf, CricketerListItemComponent, NgIf, RouterLink, UpperCasePipe, DatePipe, CurrencyPipe, CricketerStatusPipe, NgClass, CricketerNameAgePipe, HoverHighlightDirective],
   templateUrl: './cricketer-list.component.html',
   styleUrl: './cricketer-list.component.css'
 })

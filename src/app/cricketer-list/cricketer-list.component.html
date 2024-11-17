@@ -13,8 +13,8 @@
   <p [ngClass]="cricketer.isActive | cricketerStatus">
     Is Active: {{ cricketer.isActive}}
   </p>
-  <p><button type="button" (click)="deleteCricketer(cricketer.id)">Delete</button>
-    <button type="button" (click)="editButton(cricketer.id); $event.stopPropagation()">Edit</button> </p>
+  <p><button type="button" (click)="deleteCricketer(cricketer.id)" [appHoverHighlight]="'black'">Delete</button>
+    <button type="button" (click)="editButton(cricketer.id); $event.stopPropagation()" [appHoverHighlight]="'black'">Edit</button> </p>
 </div>
 
 <div *ngIf="error" class="error">{{ error }}</div>
