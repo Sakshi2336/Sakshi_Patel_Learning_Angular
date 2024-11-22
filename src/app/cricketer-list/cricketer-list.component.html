@@ -1,9 +1,9 @@
 
 
 
-<div *ngFor="let cricketer of cricketerList" [routerLink]="['/cricketers',cricketer.id ]">
-
-  <p>ID : {{ cricketer.id }}</p>
+<div *ngFor="let cricketer of cricketerList" [routerLink]="['/cricketers',cricketer.id ]" appShowDetailsOnHover [detailsOnHover] = "'This is a tool tip! This shows a Cricketrer'">
+<!-- gEt the first p tag from the dom -->
+  <p >ID : {{ cricketer.id }}</p>
   <p>First Name(Age) :{{ cricketer |cricketerNameAge }}</p>
   <p>Last Name: {{ cricketer.lastName | uppercase }}</p>
   <p>Date of Birth : {{cricketer.dob | date}}</p>

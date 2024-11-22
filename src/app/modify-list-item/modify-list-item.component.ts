@@ -7,6 +7,7 @@ import {NgIf} from "@angular/common";
 import {HighlightOnFocusDirective} from "../directives/highlight-on-focus.directive";
 import {AutoFocusDirective} from "../directives/auto-focus.directive";
 
+
 @Component({
   selector: 'app-modify-list-item',
   standalone: true,
@@ -14,7 +15,7 @@ import {AutoFocusDirective} from "../directives/auto-focus.directive";
     ReactiveFormsModule,
     NgIf,
     HighlightOnFocusDirective,
-    AutoFocusDirective
+    AutoFocusDirective,
   ],
   templateUrl: './modify-list-item.component.html',
   styleUrl: './modify-list-item.component.css'

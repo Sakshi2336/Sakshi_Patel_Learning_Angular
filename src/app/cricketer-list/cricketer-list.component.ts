@@ -8,12 +8,13 @@ import {cricketersList} from "../Shared/mockCricketer.data";
 import {CricketerStatusPipe} from "../pipes/cricketer-status.pipe";
 import {CricketerNameAgePipe} from "../pipes/cricketer-name-age.pipe";
 import {HoverHighlightDirective} from "../directives/hover-highlight.directive";
+import {ShowDetailsOnHoverDirective} from "../directives/show-details-on-hover.directive";
 
 
 @Component({
   selector: 'app-cricketer-list',
   standalone: true,
-  imports: [NgForOf, NgForOf, CricketerListItemComponent, NgIf, RouterLink, UpperCasePipe, DatePipe, CurrencyPipe, CricketerStatusPipe, NgClass, CricketerNameAgePipe, HoverHighlightDirective],
+  imports: [NgForOf, NgForOf, CricketerListItemComponent, NgIf, RouterLink, UpperCasePipe, DatePipe, CurrencyPipe, CricketerStatusPipe, NgClass, CricketerNameAgePipe, HoverHighlightDirective,ShowDetailsOnHoverDirective],
   templateUrl: './cricketer-list.component.html',
   styleUrl: './cricketer-list.component.css'
 })
