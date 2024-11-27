@@ -1,21 +1,33 @@
 import {Component, OnInit} from '@angular/core';
-import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
+import {FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators} from "@angular/forms";
 import {ActivatedRoute, Router} from "@angular/router";
 import {CricketPlayerService} from "../Services/cricket-player.service";
 import {Cricketer} from "../Shared/Modules/cricketer";
 import {NgIf} from "@angular/common";
 import {HighlightOnFocusDirective} from "../directives/highlight-on-focus.directive";
 import {AutoFocusDirective} from "../directives/auto-focus.directive";
+import {MatCheckbox, MatCheckboxModule} from "@angular/material/checkbox";
+import {MatFormField, MatFormFieldModule, MatLabel} from "@angular/material/form-field";
+import {MatInputModule} from "@angular/material/input";
+import {MatButtonModule} from "@angular/material/button";
 
 
 @Component({
   selector: 'app-modify-list-item',
   standalone: true,
   imports: [
-    ReactiveFormsModule,
+    FormsModule,
     NgIf,
+    ReactiveFormsModule,
     HighlightOnFocusDirective,
     AutoFocusDirective,
+    // MatCheckbox,
+    // MatLabel,
+    // MatFormField,
+    MatFormFieldModule,
+    MatInputModule,
+    MatCheckboxModule,
+    MatButtonModule
   ],
   templateUrl: './modify-list-item.component.html',
   styleUrl: './modify-list-item.component.css'
