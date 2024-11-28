@@ -1,12 +1,18 @@
 
 div{
   text-align: center;
+  font-size: larger;
 }
+
 .cricketer-detail {
   border: 1px solid #ddd;
   padding: 16px;
   margin-top: 16px;
   background-color: #f9f9f9;
+}
+
+.header{
+  text-align: center;
 }
 
 h2 {

@@ -10,6 +10,8 @@ import {MatCheckbox, MatCheckboxModule} from "@angular/material/checkbox";
 import {MatFormField, MatFormFieldModule, MatLabel} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
 import {MatButtonModule} from "@angular/material/button";
+import {MatSlideToggle} from "@angular/material/slide-toggle";
+import {MatTooltip} from "@angular/material/tooltip";
 
 
 @Component({
@@ -21,13 +23,15 @@ import {MatButtonModule} from "@angular/material/button";
     ReactiveFormsModule,
     HighlightOnFocusDirective,
     AutoFocusDirective,
-    // MatCheckbox,
-    // MatLabel,
-    // MatFormField,
+    MatCheckbox,
+    MatLabel,
+    MatFormField,
     MatFormFieldModule,
     MatInputModule,
     MatCheckboxModule,
-    MatButtonModule
+    MatButtonModule,
+    MatSlideToggle,
+    MatTooltip
   ],
   templateUrl: './modify-list-item.component.html',
   styleUrl: './modify-list-item.component.css'

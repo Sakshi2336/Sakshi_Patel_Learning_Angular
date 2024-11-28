@@ -1,20 +1,40 @@
 <div *ngIf="cricketerData" class="cricketer-detail">
-  <h2>Cricketer Details</h2>
-  <p><strong>ID: </strong>{{ cricketerData.id }}</p>
-  <p><strong>First Name(Age) :</strong>{{ cricketerData |cricketerNameAge }}</p>
-  <p><strong>Last Name:</strong> {{ cricketerData.lastName | uppercase }}</p>
-  <p><strong>Date of Birth : </strong>{{cricketerData.dob | date}}</p>
-  <p><strong>Country: </strong>{{ cricketerData.country }}</p>
-  <p>Role : {{cricketerData.role}}</p>
-  <p><strong>Net Worth : </strong>{{cricketerData.netWorth | currency : 'CAD'}} million</p>
-  <p [ngClass]="cricketerData.isActive | cricketerStatus">
-    Is Active: {{ cricketerData.isActive ? 'Active' : 'Inactive' }}
-  </p>
-  <img [src]="cricketerData.imageUrl" class="cricketer-image" alt="Image" height="200"/>
-  <br>
-  <button (click)="goBackward()" [disabled]="currentIndex === 0">Previous</button>
-  <button (click)="goForward()" [disabled]="currentIndex === cricketerList.length - 1">Next</button>
-  <button (click)="goBack()">Back to Cricketer List</button>
+  <mat-card class="cricketer-card">
+    <mat-card-header>
+      <mat-card-title class="header">Cricketer Details</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+    <p><strong>ID: </strong>{{ cricketerData.id }}</p>
+    <p><strong>First Name(Age) :</strong>{{ cricketerData |cricketerNameAge }}</p>
+    <p><strong>Last Name:</strong> {{ cricketerData.lastName | uppercase }}</p>
+    <p><strong>Date of Birth : </strong>{{cricketerData.dob | date}}</p>
+    <p><strong>Country: </strong>{{ cricketerData.country }}</p>
+      <p><strong>Role : </strong>{{cricketerData.role}}</p>
+    <p><strong>Net Worth : </strong>{{cricketerData.netWorth | currency : 'CAD'}} million</p>
+    <p [ngClass]="cricketerData.isActive | cricketerStatus">
+      Is Active: {{ cricketerData.isActive ? 'Active' : 'Inactive' }}
+    </p>
+    <img [src]="cricketerData.imageUrl" class="cricketer-image" alt="Image" height="200"/>
+    <br>
+    </mat-card-content>
+  </mat-card>
+
+  <!-- Navigation Buttons -->
+  <div class="navigation-buttons">
+    <button mat-raised-button color="primary" (click)="goBackward()" [disabled]="currentIndex === 0">
+      <mat-icon>arrow_back</mat-icon> Previous
+    </button>
+    <button mat-raised-button color="primary" (click)="goForward()" [disabled]="currentIndex === cricketerList.length - 1">
+      Next <mat-icon>arrow_forward</mat-icon>
+    </button>
+    <button mat-raised-button color="accent" (click)="goBack()">
+      Back to Cricketer List
+    </button>
+  </div>
 </div>
 
-<div *ngIf="error" class="error">{{ error }}</div>
+<!-- Error Display -->
+<div *ngIf="error" mat-card class="error-card">
+  <mat-card-content>{{ error }}</mat-card-content>
+</div>
+

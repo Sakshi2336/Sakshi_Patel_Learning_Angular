@@ -3,7 +3,7 @@
   <!-- Cricketer ID -->
   <mat-form-field appearance="outline" class="form-field" disabled>
     <mat-label>ID</mat-label>
-    <input matInput type="number" formControlName="id" />
+    <input matInput type="number" formControlName="id" matTooltip="This is the unique identifier for the cricketer" />
   </mat-form-field>
 <!--  <div>-->
 <!--    <label for="id">Id</label>-->
@@ -13,47 +13,44 @@
   <!-- Cricketer First name -->
   <mat-form-field appearance="outline" class="form-field">
     <mat-label>First Name</mat-label>
-    <input matInput type="text" formControlName="firstName" appAutoFocus />
+    <input matInput type="text" formControlName="firstName" matTooltip="Enter the cricketer's first name" appAutoFocus />
   </mat-form-field>
 
   <!-- Cricketer Last Name -->
   <mat-form-field appearance="outline" class="form-field">
     <mat-label>Last Name</mat-label>
-    <input matInput type="text" formControlName="lastName" />
+    <input matInput type="text" formControlName="lastName" matTooltip="Enter the cricketer's last name"/>
   </mat-form-field>
 
 
   <mat-form-field appearance="outline" class="form-field">
     <mat-label>Age</mat-label>
-    <input matInput type="number" formControlName="age" />
+    <input matInput type="number" formControlName="age" matTooltip="Enter the cricketer's age in years"/>
   </mat-form-field>
 
   <mat-form-field appearance="outline" class="form-field">
     <mat-label>Country</mat-label>
-    <input matInput type="text" formControlName="country" />
+    <input matInput type="text" formControlName="country" matTooltip="Enter the cricketer's country of origin"/>
   </mat-form-field>
 
   <mat-form-field appearance="outline" class="form-field">
     <mat-label>Date of Birth</mat-label>
-    <input matInput type="text" formControlName="dob" />
+    <input matInput type="text" formControlName="dob" matTooltip="Enter the cricketer's date of birth (e.g., DD/MM/YYYY)"/>
   </mat-form-field>
 
   <mat-form-field appearance="outline" class="form-field">
     <mat-label>Net Worth</mat-label>
-    <input matInput type="number" formControlName="netWorth" />
+    <input matInput type="number" formControlName="netWorth" matTooltip="Enter the cricketer's net worth in millions"/>
   </mat-form-field>
 
   <!-- Cricketer Role -->
   <mat-form-field appearance="outline" class="form-field">
     <mat-label>Role</mat-label>
-    <input matInput type="text" formControlName="role" />
+    <input matInput type="text" formControlName="role" matTooltip="Enter the cricketer's role on the team"/>
   </mat-form-field>
 
-  <!-- Cricketer Is Active -->
-  <mat-form-field appearance="outline" class="form-field">
-    <mat-label>Is Active</mat-label>
-    <input matInput type="checkbox" formControlName="isActive" />
-  </mat-form-field>
+  <mat-slide-toggle formControlName="isActive" class="checkbox" matTooltip="Toggle to mark if the cricketer is currently active">Active me!</mat-slide-toggle>
+<!--  <mat-checkbox formControlName="isActive" class="checkbox">Is Active</mat-checkbox>-->
 
   <div class="button-group">
     <button mat-raised-button color="primary" type="submit">Submit</button>

@@ -7,11 +7,29 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {CricketPlayerService} from "../Services/cricket-player.service";
 import {CricketerStatusPipe} from "../pipes/cricketer-status.pipe";
 import {CricketerNameAgePipe} from "../pipes/cricketer-name-age.pipe";
+import {MatCard, MatCardContent, MatCardHeader, MatCardModule} from "@angular/material/card";
+import {MatIcon, MatIconModule} from "@angular/material/icon";
+import {MatButton} from "@angular/material/button";
 
 @Component({
   selector: 'app-cricketer-list-item',
   standalone: true,
-  imports: [NgIf, NgOptimizedImage, UpperCasePipe, DatePipe, CurrencyPipe, CricketerStatusPipe, NgClass, CricketerNameAgePipe],
+  imports: [NgIf,
+    NgOptimizedImage,
+    UpperCasePipe,
+    DatePipe,
+    CurrencyPipe,
+    CricketerStatusPipe,
+    NgClass,
+    CricketerNameAgePipe,
+    MatCard,
+    MatCardHeader,
+    MatCardContent,
+    MatIcon,
+    MatButton,
+    MatCardModule, //These last two imports did not get imported automatically, I had to type them manually
+    MatIconModule
+  ],
   templateUrl: './cricketer-list-item.component.html',
   styleUrl: './cricketer-list-item.component.css'
 })

@@ -1,22 +1,58 @@
+<div *ngFor="let cricketer of cricketerList" [routerLink]="['/cricketers', cricketer.id]" appShowDetailsOnHover [detailsOnHover]="'This is a tool tip! This shows a Cricketer'">
 
+  <!-- Material Card Component for displaying cricketer info -->
+  <mat-card class="cricketer-card">
+    <mat-card-header>
+      <mat-card-title>{{ cricketer.firstName }} {{ cricketer.lastName | uppercase }}</mat-card-title>
+      <mat-card-subtitle>{{ cricketer.role }} | {{ cricketer.country }}</mat-card-subtitle>
+    </mat-card-header>
 
+    <mat-card-content>
+      <p>ID: {{ cricketer.id }}</p>
+      <p>First Name (Age): {{ cricketer | cricketerNameAge }}</p>
+      <p>Date of Birth: {{ cricketer.dob | date }}</p>
+      <p>Net Worth: {{ cricketer.netWorth | currency: 'CAD' }} million</p>
 
-<div *ngFor="let cricketer of cricketerList" [routerLink]="['/cricketers',cricketer.id ]" appShowDetailsOnHover [detailsOnHover] = "'This is a tool tip! This shows a Cricketrer'">
-<!-- gEt the first p tag from the dom -->
-  <p >ID : {{ cricketer.id }}</p>
-  <p>First Name(Age) :{{ cricketer |cricketerNameAge }}</p>
-  <p>Last Name: {{ cricketer.lastName | uppercase }}</p>
-  <p>Date of Birth : {{cricketer.dob | date}}</p>
-  <p>Country :{{ cricketer.country }}</p>
-  <p>Role : {{cricketer.role}}</p>
-  <p>Net Worth : {{cricketer.netWorth | currency : 'CAD'}} million</p>
-  <p [ngClass]="cricketer.isActive | cricketerStatus">
-    Is Active: {{ cricketer.isActive}}
-  </p>
-  <p><button type="button" (click)="deleteCricketer(cricketer.id)" [appHoverHighlight]="'black'">Delete</button>
-    <button type="button" (click)="editButton(cricketer.id); $event.stopPropagation()" [appHoverHighlight]="'black'">Edit</button> </p>
+      <!-- Active Status using MatChip -->
+<!--      <mat-chip-list>-->
+        <p [ngClass]="cricketer.isActive | cricketerStatus">
+         Is Active: {{ cricketer.isActive }}
+        </p>
+<!--      </mat-chip-list>-->
+    </mat-card-content>
+
+    <mat-card-actions>
+      <button mat-raised-button color="warn" (click)="deleteCricketer(cricketer.id)" [appHoverHighlight]="'black'">
+        <mat-icon>delete</mat-icon> Delete
+      </button>
+      <button mat-raised-button color="primary" (click)="editButton(cricketer.id); $event.stopPropagation()" [appHoverHighlight]="'black'">
+        <mat-icon>edit</mat-icon> Edit
+      </button>
+    </mat-card-actions>
+  </mat-card>
+
 </div>
 
-<div *ngIf="error" class="error">{{ error }}</div>
+<!-- Error message with Material styling -->
+<div *ngIf="error" class="mat-error">{{ error }}</div>
+
+
+<!--<div *ngFor="let cricketer of cricketerList" [routerLink]="['/cricketers',cricketer.id ]" appShowDetailsOnHover [detailsOnHover] = "'This is a tool tip! This shows a Cricketrer'">-->
+<!--&lt;!&ndash; gEt the first p tag from the dom &ndash;&gt;-->
+<!--  <p >ID : {{ cricketer.id }}</p>-->
+<!--  <p>First Name(Age) :{{ cricketer |cricketerNameAge }}</p>-->
+<!--  <p>Last Name: {{ cricketer.lastName | uppercase }}</p>-->
+<!--  <p>Date of Birth : {{cricketer.dob | date}}</p>-->
+<!--  <p>Country :{{ cricketer.country }}</p>-->
+<!--  <p>Role : {{cricketer.role}}</p>-->
+<!--  <p>Net Worth : {{cricketer.netWorth | currency : 'CAD'}} million</p>-->
+<!--  <p [ngClass]="cricketer.isActive | cricketerStatus">-->
+<!--    Is Active: {{ cricketer.isActive}}-->
+<!--  </p>-->
+<!--  <p><button type="button" (click)="deleteCricketer(cricketer.id)" [appHoverHighlight]="'black'">Delete</button>-->
+<!--    <button type="button" (click)="editButton(cricketer.id); $event.stopPropagation()" [appHoverHighlight]="'black'">Edit</button> </p>-->
+<!--</div>-->
+
+<!--<div *ngIf="error" class="error">{{ error }}</div>-->
 
 

@@ -9,12 +9,38 @@ import {CricketerStatusPipe} from "../pipes/cricketer-status.pipe";
 import {CricketerNameAgePipe} from "../pipes/cricketer-name-age.pipe";
 import {HoverHighlightDirective} from "../directives/hover-highlight.directive";
 import {ShowDetailsOnHoverDirective} from "../directives/show-details-on-hover.directive";
+import {MatCard, MatCardActions, MatCardContent, MatCardHeader, MatCardModule} from "@angular/material/card";
+import {MatChip, MatChipsModule} from "@angular/material/chips";
+import {MatButton} from "@angular/material/button";
+import {MatIconModule} from "@angular/material/icon";
+import {MatTooltipModule} from "@angular/material/tooltip";
 
 
 @Component({
   selector: 'app-cricketer-list',
   standalone: true,
-  imports: [NgForOf, NgForOf, CricketerListItemComponent, NgIf, RouterLink, UpperCasePipe, DatePipe, CurrencyPipe, CricketerStatusPipe, NgClass, CricketerNameAgePipe, HoverHighlightDirective,ShowDetailsOnHoverDirective],
+  imports: [NgForOf,
+    NgForOf,
+    CricketerListItemComponent,
+    NgIf,
+    RouterLink,
+    UpperCasePipe,
+    DatePipe,
+    CurrencyPipe,
+    CricketerStatusPipe,
+    NgClass,
+    CricketerNameAgePipe,
+    HoverHighlightDirective,
+    ShowDetailsOnHoverDirective,
+    MatCardHeader,
+    MatCardContent,
+    MatCardActions,
+    MatButton,
+    MatCardModule,
+    MatIconModule,
+    MatChipsModule,
+    MatTooltipModule
+  ],
   templateUrl: './cricketer-list.component.html',
   styleUrl: './cricketer-list.component.css'
 })
